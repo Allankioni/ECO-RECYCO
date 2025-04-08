@@ -1,0 +1,89 @@
+.bid-status-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem 0;
+}
+
+.bid-status-circle {
+  position: relative;
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+.bid-status-red .bid-status-circle {
+  background: linear-gradient(135deg, #ff4d4d 0%, #ff1a1a 100%);
+  box-shadow: 0 4px 15px rgba(255, 26, 26, 0.3);
+}
+
+.bid-status-green .bid-status-circle {
+  background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
+  box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+}
+
+.bid-status-content {
+  text-align: center;
+  color: white;
+  animation: fadeIn 0.5s ease;
+}
+
+.bid-status-text {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  white-space: pre-line;
+}
+
+.bid-status-amount {
+  font-size: 1.75rem;
+  font-weight: bold;
+}
+
+.bid-status-checkmark {
+  position: absolute;
+  bottom: 20px;
+  width: 24px;
+  height: 24px;
+  color: white;
+  animation: scaleIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+.bid-status-red .bid-status-circle::before,
+.bid-status-green .bid-status-circle::before {
+  content: '';
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  border-radius: 50%;
+  background: inherit;
+  filter: blur(10px);
+  opacity: 0.7;
+  z-index: -1;
+}
